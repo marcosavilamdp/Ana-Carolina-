@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mensaje Especial</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #fffaf4;
+            color: #3a2e25;
+            text-align: center;
+            padding: 2rem;
+        }
+        .hidden-content {
+            display: none;
+        }
+        .card {
+            max-width: 600px;
+            margin: auto;
+            padding: 2rem;
+            border-radius: 12px;
+            background: #fef6ef;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #5c4033;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        audio {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="waiting">
+        <h2>⏳ Este mensaje estará disponible pronto...</h2>
+        <p>Vuelve a intentarlo a la hora indicada 💛</p>
+    </div>
+
+    <div id="content" class="hidden-content">
+        <div class="card">
+            <h2>Sé que estás rindiendo...</h2>
+            <p>Así que vas a poder ver esto a la hora que estés en casa ✨</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Illustration_of_flower_in_flat_style.svg/800px-Illustration_of_flower_in_flat_style.svg.png" alt="Flores tiernas">
+            <p><strong>Espero que esto alegre tu tarde.<br>Te lo merecés por ser tan increíble. 💛</strong></p>
+            <a class="button" href="https://youtu.be/A2aixdFINOQ?si=tawMZduQXs1utoU9" target="_blank">Ver en YouTube</a>
+            <br>
+            <audio controls autoplay>
+                <source src="https://cdn.pixabay.com/audio/2023/05/23/audio_0f4de96f60.mp3" type="audio/mp3">
+                Tu navegador no soporta audio HTML.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        const unlockTime = new Date(Date.now() + 5 * 60 * 1000); // desbloqueo en 5 minutos
+        const interval = setInterval(() => {
+            if (new Date().getTime() >= unlockTime) {
+                clearInterval(interval);
+                document.getElementById('waiting').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
